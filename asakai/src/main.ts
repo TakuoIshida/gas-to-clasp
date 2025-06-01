@@ -6,23 +6,31 @@ function notifyDutyOnSlack() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('team');
   if (!sheet) throw new Error('シート「team」が見つかりません');
   const data = sheet.getDataRange().getValues();
-  console.log(`data: ${JSON.stringify(data)}`);
-  if (data.length < 2) throw new Error('データがありません');
+  if (data.length < 2) throw new Error('データがありません'); // last_num + 説明 = 2行
 
-  // 1行目はヘッダー、2行目以降がデータ
-  const rows = data.slice(1);
+  // 1行目：last_num（最後に朝会をした番号）
+  // 2行目：説明
+  // 3行目以降：番号、名前、メールアドレス
+  const rows = data.slice(2);　// 三行目以降のデータ
   const numbers = rows.map(row => Number(row[0])).filter(n => !isNaN(n));
   const maxNumber = Math.max(...numbers);
+  console.log(`maxNumber: ${maxNumber}`);
   // 最後の当番番号を取得（最終行の番号と仮定）
-  const lastNumber = sheet.getRange(sheet.getLastRow(), 1).getValue();
+  const lastNumber = Number(data[0][1]); // 1行目の2列目（番号）
+  console.log(`lastNumber: ${lastNumber}`);
   const nextNumber = lastNumber >= maxNumber ? 1 : lastNumber + 1;
   // 次の当番行を検索
   const nextRow = rows.find(row => Number(row[0]) === nextNumber);
   if (!nextRow) throw new Error('次の当番が見つかりません');
   const email = nextRow[2];
-  sendSlackMention(email);
+  console.log(`email: ${email}`);
+  // sendSlackMention(email); TODO: Slack通知を有効にする
   // 最終行の番号を次の番号に更新
-  sheet.getRange(sheet.getLastRow(), 1).setValue(nextNumber);
+  const secondColumn = 2;
+  const firstRow = 1;
+  sheet.getRange(firstRow, secondColumn).setValue(nextNumber); // 1行目の2列目に次の番号を設定
+  console.log(`A2セルの値: ${sheet.getRange(firstRow, secondColumn).getValue()}`);
+  console.log(`nextNumber: ${nextNumber}`);
 }
 
 /**
