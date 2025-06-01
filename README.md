@@ -20,3 +20,10 @@ https://sqripts.com/2025/03/13/104667/
 ```
 User has not enabled the Apps Script API. Enable it by visiting https://script.google.com/home/usersettings then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
 ```
+
+- このアプリはGoogleで確認されていません
+  - 「プログラムが、Google関連のあなたの情報の一部にアクセスしようとしている」場合に表示されます
+  　- スクリプトが、SpreadsheetやDocsなどのDriveデータにアクセスする場合
+  　- 外部APIを使用して作られたスクリプトの場合
+  　- その他Googleと関連付けられているあなたの情報にアクセスしようとする場合
+  　- [こちら](https://best-cloud.jp/google-apps-script-authentication/)で対応
