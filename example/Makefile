@@ -10,8 +10,9 @@ pull:
 # pushして更新する
 .PHONY: push
 push:
+	npm run build
 	cp ./src/appsscript.json ./dist/appsscript.json
-	npm run build && npx clasp push
+	npx clasp push
 
 # pushで更新したコードをデプロイする
 .PHONY: deploy

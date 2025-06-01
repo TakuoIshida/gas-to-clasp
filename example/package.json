@@ -1,0 +1,23 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "tsinit": "npx tsc --init",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/clasp": "^3.0.6-alpha",
+    "@types/google-apps-script": "^1.0.97",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5",
+    "esbuild-gas-plugin": "^0.9.0",
+    "vite": "^6.3.5"
+  }
+}
