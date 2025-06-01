@@ -10,5 +10,6 @@ function callSample2() {
   sample();
 }
 
+// gasからfunc指定で呼び出せるようにする
 globalThis.callSample = callSample;
 globalThis.callSample2 = callSample2;
