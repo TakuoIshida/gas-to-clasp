@@ -1,0 +1,17 @@
+{
+  "name": "gas-to-clasp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "login": "clasp login"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/clasp": "^3.0.6-alpha",
+    "@types/google-apps-script": "^1.0.97",
+    "typescript": "^5.8.3"
+  }
+}
