@@ -1,8 +1,14 @@
 import { sample } from "./sample.ts";
 
-function main() {
-  console.log("main function called!");
+function callSample() {
+  console.log("callSample function called!");
   sample();
 }
 
-main();
+function callSample2() {
+  console.log("callSample function called!");
+  sample();
+}
+
+globalThis.callSample = callSample;
+globalThis.callSample2 = callSample2;
