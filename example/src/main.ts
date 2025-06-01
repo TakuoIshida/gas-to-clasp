@@ -1,12 +1,12 @@
 import { sample } from "./sample.ts";
 
 function callSample() {
-  console.log("callSample function called!");
+  console.log("asakai function called!");
   sample();
 }
 
 function callSample2() {
-  console.log("callSample function called!");
+  console.log("asakai function called!");
   sample();
 }
 

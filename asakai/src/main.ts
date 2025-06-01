@@ -1,4 +1,15 @@
 import { sample } from "./sample.ts";
 
-// GASから参照したい変数はglobalオブジェクトに渡してあげる必要がある
-(global as any).sample = sample;
+function callSample() {
+  console.log("callSample function called!");
+  sample();
+}
+
+function callSample2() {
+  console.log("callSample function called!");
+  sample();
+}
+
+// gasからfunc指定で呼び出せるようにする
+globalThis.callSample = callSample;
+globalThis.callSample2 = callSample2;
